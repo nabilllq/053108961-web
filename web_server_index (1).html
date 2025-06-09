@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informasi Mahasiswa</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .profile-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: white;
+            font-weight: bold;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        .info-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            border-left: 5px solid #667eea;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 15px 0;
+            padding: 10px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .label {
+            font-weight: 600;
+            color: #495057;
+            font-size: 1.1rem;
+        }
+
+        .value {
+            font-size: 1.1rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .footer {
+            margin-top: 30px;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        .server-info {
+            background: #e3f2fd;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #1565c0;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .info-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-icon">
+            👨‍🎓
+        </div>
+        
+        <h1>Informasi Mahasiswa</h1>
+        
+        <div class="info-card">
+            <div class="info-item">
+                <span class="label">Nama:</span>
+                <span class="value" id="nama">Nisa Wirasyah</span>
+            </div>
+            
+            <div class="info-item">
+                <span class="label">NIM:</span>
+                <span class="value" id="nim">053108961</span>
+            </div>
+            
+
+        </div>
+
+        <div class="server-info">
+            <strong>🌐 Server Information</strong><br>
+            Domain: www.<span id="domain-nim">053108961</span>.com<br>
+            Status: Active<br>
+            Last Updated: <span id="current-date"></span>
+        </div>
+        
+        <div class="footer">
+            <p>Web Server Assignment - Jaringan Komputer</p>
+        </div>
+    </div>
+
+    <script>
+        // Update tanggal saat ini
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString('id-ID');
+        
+        // Fungsi untuk update informasi (bisa dipanggil dari console browser)
+        function updateInfo(nama, nim) {
+            document.getElementById('nama').textContent = nama || 'Nisa Wirasyah';
+            document.getElementById('nim').textContent = nim || '053108961';
+            document.getElementById('domain-nim').textContent = nim ? nim.toLowerCase() : '053108961';
+        }
+        
+        // Contoh penggunaan (hapus komentar dan isi dengan data Anda):
+        // updateInfo('Nisa Wirasyah', '053108961');
+    </script>
+</body>
+</html>
